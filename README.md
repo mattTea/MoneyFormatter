@@ -23,7 +23,7 @@ typealias MoneyAdder = (BigDecimal, BigDecimal) -> String
 
 ## Steps
 
-### Step 1: Write a bunch of functions
+### Step 1: Write the first functions
 
 `defaultMoneyFormatter` - should take a `BigDecimal` and return a `String` (i.e. it is a `MoneyFormatter`)
 - this will just take a `BigDecimal` and return it's default `.toString()` value
