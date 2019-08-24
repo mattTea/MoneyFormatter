@@ -24,9 +24,7 @@ object MoneyFormatterTest : Spek ({
 
     describe("createMoneyAdder") {
 
-        val mockMoneyFormatter = MockMoneyFormatter()
-
-        val moneyAdder = createMoneyAdder(mockMoneyFormatter.mock)
+        val moneyAdder = createMoneyAdder(::defaultMoneyFormatter)
 
         val result = moneyAdder(BigDecimal(200), BigDecimal(115))
 
@@ -35,10 +33,3 @@ object MoneyFormatterTest : Spek ({
         }
     }
 })
-
-private class MockMoneyFormatter {
-    val mock = { bigDecimal: BigDecimal ->
-
-        bigDecimal.toString()
-    }
-}

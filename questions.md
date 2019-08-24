@@ -12,3 +12,8 @@ is of typealias MoneyFormatter, I'm not yet referring to the typealias
   - Not sure yet how I could have broken down the test and implementation into smaller chunks.
   - Also, still not really sure of the benefits of this HoF pattern.
   - Looks like I jumped straight over and completed step 2 and 3 together as well.
+
+4. Ok, corrected my `createMoneyAdder -> should return "315"` test to use (::defaultMoneyFormatter) so I don't have to create and use the mock.
+This makes me happier, it didn't feel right that I wasn't using the only actual MoneyFormatter I'd written!
+
+5. Step 3 is maybe creating a real MoneyFormatter (rather than a mock) and using it to print a proper output
