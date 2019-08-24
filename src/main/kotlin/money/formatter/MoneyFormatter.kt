@@ -9,3 +9,10 @@ typealias MoneyAdder = (BigDecimal, BigDecimal) -> String
 internal fun defaultMoneyFormatter(amount: BigDecimal): String {
     return amount.toString()
 }
+
+internal fun createMoneyAdder(moneyFormatter: MoneyFormatter): MoneyAdder = { firstAmount, secondAmount ->
+
+    val totalAmount = firstAmount + secondAmount
+
+    moneyFormatter(totalAmount)
+}

@@ -22,4 +22,23 @@ object MoneyFormatterTest : Spek ({
         }
     }
 
+    describe("createMoneyAdder") {
+
+        val mockMoneyFormatter = MockMoneyFormatter()
+
+        val moneyAdder = createMoneyAdder(mockMoneyFormatter.mock)
+
+        val result = moneyAdder(BigDecimal(200), BigDecimal(115))
+
+        it("should return '315'") {
+            assertThat(result).isEqualTo("315")
+        }
+    }
 })
+
+private class MockMoneyFormatter {
+    val mock = { bigDecimal: BigDecimal ->
+
+        bigDecimal.toString()
+    }
+}

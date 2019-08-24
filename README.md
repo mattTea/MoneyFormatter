@@ -30,6 +30,7 @@ typealias MoneyAdder = (BigDecimal, BigDecimal) -> String
 
 `createMoneyAdder` - should take a `MoneyFormatter` and return a `MoneyAdder`
 - this will return a function
+
 - the function that it returns should take two `BigDecimal`s, add them together and format them
 using the `MoneyFormatter` that was passed in to `createMoneyAdder`
 
