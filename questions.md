@@ -8,3 +8,5 @@ Questions & thoughts
 3. Was struggling a bit with the benefits of this Higher Order Functions pattern
     - Should be understood as simply dependency injection
     - Inject different behaviour depending on your context - real application, test, or different behaviours within the application
+    
+4. Not sure if my return from `createMoneyAdder` is correct ([at step 1](https://github.com/mattTea/MoneyFormatter/blob/5a1da34e3e/src/main/kotlin/money/formatter/MoneyFormatter.kt)) - I'm invoking `moneyFormatter` directly, but should possibly just be returning a function?
