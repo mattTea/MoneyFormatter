@@ -32,6 +32,17 @@ object MoneyFormatterTest : Spek ({
             assertThat(result).isEqualTo("315")
         }
     }
+
+    describe("createMoneyAdder functional test using defaultMoneyFormatter") {
+
+        val moneyAdder = createMoneyAdder(::defaultMoneyFormatter)
+
+        val result = moneyAdder(BigDecimal(250), BigDecimal(85))
+
+        it("should return '335'") {
+            assertThat(result).isEqualTo("335")
+        }
+    }
 })
 
 private fun mockMoneyFormatter(input: BigDecimal): String {
