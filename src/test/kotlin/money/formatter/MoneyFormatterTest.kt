@@ -24,8 +24,10 @@ object MoneyFormatterTest : Spek ({
 
     describe("createMoneyAdder") {
 
+        // createMoneyAdder takes mockMoneyFormatter and returns moneyAdder here
         val moneyAdder = createMoneyAdder(::mockMoneyFormatter)
 
+        // the we call moneyAdder with 2 BigDecimals
         val result = moneyAdder(BigDecimal(200), BigDecimal(115))
 
         it("should return '315'") {
@@ -33,14 +35,37 @@ object MoneyFormatterTest : Spek ({
         }
     }
 
-    describe("createMoneyAdder functional test using defaultMoneyFormatter") {
+    describe("createMoneyAdder functional test (to invoke it) using defaultMoneyFormatter") {
 
+        // we can next replace mockMoneyFormatter and inject defaultMoneyFormatter instead for different behaviour (benefits of dependency injection)
         val moneyAdder = createMoneyAdder(::defaultMoneyFormatter)
 
         val result = moneyAdder(BigDecimal(250), BigDecimal(85))
 
         it("should return '335'") {
             assertThat(result).isEqualTo("335")
+        }
+    }
+
+    describe("createMoneyAdder functional test (to invoke it with positive total) using betterMoneyFormatter") {
+
+        val moneyAdder = createMoneyAdder(::betterMoneyFormatter)
+
+        val result = moneyAdder(BigDecimal(250), BigDecimal(85))
+
+        it("should return '£355.00'") {
+            assertThat(result).isEqualTo("£335.00")
+        }
+    }
+
+    describe("createMoneyAdder functional test (to invoke it with negative total) using betterMoneyFormatter") {
+
+        val moneyAdder = createMoneyAdder(::betterMoneyFormatter)
+
+        val result = moneyAdder(BigDecimal(-250), BigDecimal(85))
+
+        it("should return '£-165.00'") {
+            assertThat(result).isEqualTo("£-165.00")
         }
     }
 })

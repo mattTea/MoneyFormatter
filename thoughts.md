@@ -11,6 +11,6 @@ Thoughts
     
 4. Not sure if my return from `createMoneyAdder` is correct ([at step 1](https://github.com/mattTea/MoneyFormatter/blob/5a1da34e3e/src/main/kotlin/money/formatter/MoneyFormatter.kt)) - I'm invoking `moneyFormatter` directly, but should possibly just be returning a function?
 
-5. Step 2 has been invoked in the tests
+5. Step 2 has been [invoked in the tests](https://github.com/mattTea/MoneyFormatter/blob/6016b10911/src/test/kotlin/money/formatter/MoneyFormatterTest.kt)
     - Created a functional-type test to invoke both these things together
     - And added a `println()` statement to createMoneyAdder to cover the printing of the output
