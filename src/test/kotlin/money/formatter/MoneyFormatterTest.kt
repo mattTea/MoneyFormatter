@@ -47,18 +47,18 @@ object MoneyFormatterTest : Spek ({
         }
     }
 
-    describe("createMoneyAdder functional test (to invoke it with positive total) using betterMoneyFormatter") {
+    describe("createMoneyAdder functional test invoked using betterMoneyFormatter with positive total)") {
 
         val moneyAdder = createMoneyAdder(::betterMoneyFormatter)
 
         val result = moneyAdder(BigDecimal(250), BigDecimal(85))
 
-        it("should return '£355.00'") {
+        it("should return '£335.00'") {
             assertThat(result).isEqualTo("£335.00")
         }
     }
 
-    describe("createMoneyAdder functional test (to invoke it with negative total) using betterMoneyFormatter") {
+    describe("createMoneyAdder functional test invoked using betterMoneyFormatter with negative total)") {
 
         val moneyAdder = createMoneyAdder(::betterMoneyFormatter)
 
@@ -66,6 +66,39 @@ object MoneyFormatterTest : Spek ({
 
         it("should return '£-165.00'") {
             assertThat(result).isEqualTo("£-165.00")
+        }
+    }
+
+    describe("createMoneyAdder functional test invoked using bestMoneyFormatter with positive total)") {
+
+        val moneyAdder = createMoneyAdder(::bestMoneyFormatter)
+
+        val result = moneyAdder(BigDecimal(250), BigDecimal(85))
+
+        it("should return '£335.00'") {
+            assertThat(result).isEqualTo("£335.00")
+        }
+    }
+
+    describe("createMoneyAdder functional test invoked using bestMoneyFormatter with negative total)") {
+
+        val moneyAdder = createMoneyAdder(::bestMoneyFormatter)
+
+        val result = moneyAdder(BigDecimal(-250), BigDecimal(85))
+
+        it("should return '-£165.00'") {
+            assertThat(result).isEqualTo("-£165.00")
+        }
+    }
+
+    describe("createMoneyAdder functional test invoked using bestMoneyFormatter with zero total)") {
+
+        val moneyAdder = createMoneyAdder(::bestMoneyFormatter)
+
+        val result = moneyAdder(BigDecimal(-250), BigDecimal(250))
+
+        it("should return 'Free'") {
+            assertThat(result).isEqualTo("Free")
         }
     }
 })
